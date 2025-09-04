@@ -1,0 +1,11 @@
+---
+description: Development standards for test-driven development with Microsoft documentation style
+globs:
+alwaysApply: true
+---
+
+This application shall be a REST API in dotnet
+Entity Framework shall be used to generate the models
+
+There shall be a repository layer, that layer performs all of the SQL queries and interacts with the models.
+There shall be a Controller layer, that layer will call the repository layer directly.
