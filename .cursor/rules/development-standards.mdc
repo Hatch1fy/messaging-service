@@ -1,0 +1,13 @@
+---
+description: Development standards for test-driven development with Microsoft documentation style
+globs:
+alwaysApply: true
+---
+
+When inventing new features, do the coding in test-driven development style, and prefer to style the code according to examples found in the official Microsoft Documentation, so that I as a human can follow along with your code and understand it by comparing it to the Microsoft documentation. Prefer to write simple understandable code over efficient but obscure and hard to understand code.
+
+Whenever tests create test data, they MUST assume other tests are creating and deleting test data either in parallel, or previous test runs created stale data. Therefore, Test A must create and dispose data that is uniquely and randomly namespaced to it's own run. When it disposes that data, it must only dispose of data that it created during it's run. When Test B runs, it must not rely on a clean state, but instead only try to read or delete data that it has created during it's run.
+
+Aim for at least 90% code coverage overall by using dotnet test.
+
+DO NOT MODIFY test.sh under any circumstances. If you want to add a test, add it into a c# file for xUnit to run using `dotnet test`
