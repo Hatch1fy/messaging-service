@@ -1,11 +1,27 @@
 ---
-description: Development standards for test-driven development with Microsoft documentation style
+description: Design doc / to do list
 globs:
 alwaysApply: true
 ---
+TO DO: 
+[done] -  This application shall be a REST API in dotnet
+[ ] - Entity Framework shall be used to generate the models
 
-This application shall be a REST API in dotnet
-Entity Framework shall be used to generate the models
+[ ] - There shall be a repository layer, that layer performs all of the SQL queries and interacts with the models.
+[done] There shall be a Controller layer,
+[ ] - The controller layer will call the repository layer directly 
 
-There shall be a repository layer, that layer performs all of the SQL queries and interacts with the models.
-There shall be a Controller layer, that layer will call the repository layer directly.
+The database design:
+- A Message has ONE Conversation
+- a Conversation HAS MANY Messages
+- a Participant has many Messages
+- a Message has one "to" Participant
+- a Message has one "from" Participant
+- a conversation has TWO participants.
+- a conversation has a unique constraint of the two participants.
+- a message has ONE conversation type
+
+[ ] - In the code, messageType can be an Enum: SMS, MMS, EMAIL
+
+
+
