@@ -1,6 +1,7 @@
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -15,9 +16,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// Define the /hello endpoint
-app.MapGet("/hello", () => "Hello!")
-    .WithName("GetHello")
-    .WithOpenApi();
+app.UseAuthorization();
+
+app.MapControllers();
 
 app.Run();
